@@ -1,6 +1,6 @@
 # Tareas_Progra_web
 
-## Ejecucion de la tarea-02
+## Usage
 
-Simplemente abre el archivo `index.html` en el navegador web para ejecutar el proyecto.  
-No se requiere niguna configuración adicional.
+Simply open the `index.html` file in your web browser to run the project.  
+No installation or server setup is required.
