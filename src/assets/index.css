@@ -1,8 +1,132 @@
-:root {
-
-    background-color: black;
+html {
+    height: 100%;
 }
 
-h1 {
+:root {
+    background-image: url("img/grass-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 1rem 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+}
+
+@font-face {
+    font-family: "PokemonFont";
+    src: url("fonts/PokemonSolid.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.title {
+    color: black;
+    font-family: "PokemonFont", sans-serif;
+    font-size: 4rem;
+    color: #ffcb05;
+    text-shadow: 6px 6px #3b4cca;
+}
+
+.button-search {
+    background-color: #4CAF50;
     color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.button-search:hover {
+    background-color: #45a049;
+}
+
+.button-search:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.input-container input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.pokemon-loading {
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+    animation: spin 2s linear infinite;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pokemon-info {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem;
+    font-family: "PokemonFont", sans-serif;
+}
+
+.pokemon-name {
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-transform: capitalize;
+}
+
+.pokemon-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.pokemon-type {
+    font-size: 1.2rem;
+    color: black;
+    text-transform: capitalize;
+
 }
