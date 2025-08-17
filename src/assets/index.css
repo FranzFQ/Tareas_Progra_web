@@ -38,7 +38,7 @@ hr {
 
 @font-face {
     font-family: "PokemonFont";
-    src: url("fonts/PokemonSolid.ttf") format("truetype");
+    src: url("/fonts/PokemonSolid.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
