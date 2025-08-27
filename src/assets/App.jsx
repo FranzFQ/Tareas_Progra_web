@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import {Create_Task} from "./create_task";
-import {Show_Task} from "./show_task";
+import { Create_Task } from "./create_task";
+import { Show_Task } from "./show_task";
 
 export function App() {
   const [tasks, settasks] = useState([]);
 
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
-    if (JSON.parse(storedTasks).length > 0) {
-      settasks(JSON.parse(storedTasks));
+    if (storedTasks) {
+      if (JSON.parse(storedTasks).length > 0) {
+        settasks(JSON.parse(storedTasks));
+      }
     }
   }, []);
 
