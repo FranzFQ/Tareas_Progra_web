@@ -37,8 +37,9 @@ export default function Create_Task({ onAddTask, tasks }) {
           placeholder="Task Name"
           value={name}
           onChange={(e) => setname(e.target.value)}
+          className="task_input"
         />
-        <button type="submit">Create Task</button>
+        <button type="submit" className="task_button">Create Task</button>
       </form>
     </div>
   );
