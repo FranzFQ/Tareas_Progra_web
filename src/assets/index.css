@@ -4,7 +4,10 @@ html {
 }
 
 :root {
-    --background-color: #f4f4f4;
+  background-image: url("/public/img/background.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -12,7 +15,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-background-color: var(--background-color);
   height: 100%;
 }
 
