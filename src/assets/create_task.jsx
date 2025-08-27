@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Create_Task({ onAddTask, tasks }) {
+export function Create_Task({ onAddTask, tasks }) {
   const [name, setname] = useState("");
 
   const handleCreateTask = (event) => {

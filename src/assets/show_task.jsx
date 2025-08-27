@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Show_Task({ tasks, onDeleteTask, onCompleteTask }) {
+export function Show_Task({ tasks, onDeleteTask, onCompleteTask }) {
   const [task_filter, settask_filter] = useState("all task");
   const filteredTasks = tasks.filter((task) => {
     if (task_filter === "all task") {

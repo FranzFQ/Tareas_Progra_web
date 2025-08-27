@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Create_Task from "./create_task";
-import Show_Task from "./show_task";
+import {Create_Task} from "./create_task";
+import {Show_Task} from "./show_task";
 
-export default function App() {
+export function App() {
   const [tasks, settasks] = useState([]);
 
   useEffect(() => {
