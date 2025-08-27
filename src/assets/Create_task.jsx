@@ -1,18 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Create_Task() {
   const [name, setname] = useState("");
   const [tasks, settasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  let exist = false;
-
-  if (loading) {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-      settasks(JSON.parse(storedTasks));
-      setLoading(false);
+  
+  useEffect(() => {
+      const storedTasks = localStorage.getItem("tasks");
+      if (storedTasks) {
+        settasks(JSON.parse(storedTasks));
     }
-  }
+  }, []);
 
   const handleCreateTask = () => {
     setname(name);
