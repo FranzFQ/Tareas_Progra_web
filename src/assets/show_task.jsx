@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function Show_Task({ tasksChanged }) {
-  const [tasks, setTasks] = useState([]);
+export default function Show_Task({ tasks, onDeleteTask, onCompleteTask }) {
   const [task_filter, settask_filter] = useState("all task");
-
-  // El useEffect se ejecuta cada vez que la prop tasksChanged cambia
-  useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-      setTasks(JSON.parse(storedTasks));
-    }
-  }, [tasksChanged]);
-
   const filteredTasks = tasks.filter((task) => {
     if (task_filter === "all task") {
       return true;
@@ -41,7 +31,10 @@ export default function Show_Task({ tasksChanged }) {
         <div key={task.id} className="task">
           <h2>{task.name}</h2>
           <p>{task.state}</p>
-          <button>Delete</button>
+          {task.state === "to do" && (
+            <button onClick={() => onCompleteTask(task.id)}>Complete</button>
+          )}
+          <button onClick={() => onDeleteTask(task.id)}>Delete</button>
         </div>
       ))}
     </div>

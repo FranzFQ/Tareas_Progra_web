@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Create_Task({ onTaskCreated }) {
+export default function Create_Task({ onAddTask, tasks }) {
   const [name, setname] = useState("");
 
   const handleCreateTask = (event) => {
@@ -10,9 +10,6 @@ export default function Create_Task({ onTaskCreated }) {
       alert("Task name cannot be empty.");
       return;
     }
-
-    const storedTasks = localStorage.getItem("tasks");
-    const tasks = storedTasks ? JSON.parse(storedTasks) : [];
 
     const existingTask = tasks.find((task) => task.name === name);
     if (existingTask) {
@@ -26,11 +23,8 @@ export default function Create_Task({ onTaskCreated }) {
       state: "to do",
     };
 
-    const updatedTasks = [...tasks, newTask];
+    onAddTask(newTask);
 
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-    onTaskCreated();
     setname("");
   };
 
