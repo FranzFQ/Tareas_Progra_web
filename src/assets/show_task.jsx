@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
-import Order_Task from "./order_task";
 
-export default function Show_Task() {
+export default function Show_Task({ tasksChanged }) {
+  const [tasks, setTasks] = useState([]);
   const [task_filter, settask_filter] = useState("all task");
-  const [tasks, settasks] = useState([]);
 
+  // El useEffect se ejecuta cada vez que la prop tasksChanged cambia
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
-      settasks(JSON.parse(storedTasks));
+      setTasks(JSON.parse(storedTasks));
     }
-  }, []);
+  }, [tasksChanged]);
+
+  const filteredTasks = tasks.filter((task) => {
+    if (task_filter === "all task") {
+      return true;
+    }
+    return task.state === task_filter;
+  });
 
   return (
     <div>
@@ -20,52 +27,23 @@ export default function Show_Task() {
           name="task_filter"
           id="task_filter"
           onChange={(e) => settask_filter(e.target.value)}
+          value={task_filter}
         >
           <option value="all task">all task</option>
           <option value="to do">to do</option>
           <option value="done">done</option>
         </select>
       </div>
-      {task_filter === "all task" && (
-        <div>
-          <h2>All Tasks</h2>
-          {tasks.map((task) => (
-            <div key={task.id} className="task">
-              <h2>{task.name}</h2>
-              <p>{task.state}</p>
-              {task.state === "to do" && <button>Complete</button>}
-            </div>
-          ))}
+      <h2>
+        {task_filter === "all task" ? "All Tasks" : `${task_filter} Tasks`}
+      </h2>
+      {filteredTasks.map((task) => (
+        <div key={task.id} className="task">
+          <h2>{task.name}</h2>
+          <p>{task.state}</p>
+          <button>Delete</button>
         </div>
-      )}
-      {task_filter === "to do" && (
-        <div>
-          <h2>To Do Tasks</h2>
-          {tasks
-            .filter((task) => task.state === "to do")
-            .map((task) => (
-              <div key={task.id} className="task">
-                <h2>{task.name}</h2>
-                <p>{task.state}</p>
-                {task.state === "to do" && <button>Complete</button>}
-              </div>
-            ))}
-        </div>
-      )}
-      {task_filter === "done" && (
-        <div>
-          <h2>Done Tasks</h2>
-          {tasks
-            .filter((task) => task.state === "done")
-            .map((task) => (
-              <div key={task.id} className="task">
-                <h2>{task.name}</h2>
-                <p>{task.state}</p>
-                {task.state === "to do" && <button>Complete</button>}
-              </div>
-            ))}
-        </div>
-      )}
+      ))}
     </div>
   );
 }
