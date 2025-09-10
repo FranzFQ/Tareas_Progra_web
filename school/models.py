@@ -9,6 +9,7 @@ class Student(models.Model):
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     emergency_number = models.CharField(max_length=15)
+    course = models.CharField(max_length=50, default="Undeclared")
 
 
 class Teacher(models.Model):
@@ -17,3 +18,4 @@ class Teacher(models.Model):
     hire_date = models.DateField()
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
+    course = models.CharField(max_length=50, default="General")
