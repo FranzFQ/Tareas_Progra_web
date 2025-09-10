@@ -31,3 +31,8 @@ class PhoneNumber(models.Model):
     id = models.AutoField(primary_key=True)
     number = models.CharField(max_length=15)
     type = models.CharField(max_length=10)
+
+class EmergencyNumber(models.Model):
+    id = models.AutoField(primary_key=True)
+    number = models.CharField(max_length=15)
+    relation = models.CharField(max_length=20)
