@@ -26,3 +26,8 @@ class Course(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     credits = models.IntegerField()
+
+class PhoneNumber(models.Model):
+    id = models.AutoField(primary_key=True)
+    number = models.CharField(max_length=15)
+    type = models.CharField(max_length=10)
