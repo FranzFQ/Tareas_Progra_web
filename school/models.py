@@ -36,3 +36,6 @@ class EmergencyNumber(models.Model):
     id = models.AutoField(primary_key=True)
     number = models.CharField(max_length=15)
     relation = models.CharField(max_length=20)
+
+class CourseDetail(models.Model):
+    id = models.AutoField(primary_key=True)
