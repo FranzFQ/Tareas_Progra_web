@@ -9,7 +9,7 @@ class Student(models.Model):
     enrollment_date = models.DateField()
     phone_number = models.ForeignKey("PhoneNumber", on_delete=models.SET_NULL, null=True, blank=True)
     email = models.EmailField(unique=True)
-    emergency_number = models.CharField(max_length=15)
+    emergency_number = models.ForeignKey("EmergencyNumber", on_delete=models.SET_NULL, null=True, blank=True)
 
 class Teacher(models.Model):
     id = models.AutoField(primary_key=True)
