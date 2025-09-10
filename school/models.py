@@ -20,3 +20,9 @@ class Teacher(models.Model):
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     course = models.CharField(max_length=50, default="General")
+
+class Course(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    credits = models.IntegerField()
