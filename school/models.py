@@ -10,7 +10,6 @@ class Student(models.Model):
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     emergency_number = models.CharField(max_length=15)
-    course = models.CharField(max_length=50, default="Undeclared")
 
 class Teacher(models.Model):
     id = models.AutoField(primary_key=True)
@@ -39,3 +38,5 @@ class EmergencyNumber(models.Model):
 
 class CourseDetail(models.Model):
     id = models.AutoField(primary_key=True)
+    course = models.ForeignKey("Course", on_delete=models.SET_NULL, null=True, blank=True)
+    student = models.ForeignKey("Student", on_delete=models.SET_NULL, null=True, blank=True)
