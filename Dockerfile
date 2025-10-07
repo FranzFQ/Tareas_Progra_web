@@ -8,6 +8,9 @@ ENV PYTHONUNBUFFERED=1
 # Establecer directorio de trabajo
 WORKDIR /HW-06
 
+# Copiar proyecto
+COPY HW-06 /HW-06/
+
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     libpq-dev gcc \
@@ -16,9 +19,6 @@ RUN apt-get update && apt-get install -y \
 # Instalar dependencias de Python
 COPY HW-06/requirements.txt /HW-06/
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar proyecto
-COPY HW-06 /HW-06/
 
 # Exponer el puerto para Django
 EXPOSE 8000

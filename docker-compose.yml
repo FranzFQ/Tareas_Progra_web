@@ -5,11 +5,13 @@ services:
     build: .
     container_name: django-HW-06
     command: python manage.py runserver 0.0.0.0:8000
+    working_dir: /HW-06  
     volumes:
-      - ./HW-06:/HW-06
-      - sqlite_data:/HW-06/db.sqlite3
+      - ./HW-06:/HW-06   
+      - sqlite_data:/data
     ports:
       - "8000:8000"
+
 
 volumes:
   sqlite_data:
