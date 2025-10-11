@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My apps
+    'keys', 
+    # rest_framework
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -78,6 +84,16 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Redis configuration
+
+REDIS_CLIENT = redis.Redis(
+    host='localhost',     # nombre del servicio en docker-compose
+    port=6379,
+    db=0,
+    decode_responses=True  # hace que los valores se manejen como strings en vez de bytes
+)
+
 
 
 # Password validation
