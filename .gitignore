@@ -1,0 +1,80 @@
+# =========================================
+# Archivos de Python / Django
+# =========================================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+
+# Entorno virtual
+venv/
+ENV/
+.env
+*.env
+
+# Archivos de migraciones compilados
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# Archivos de configuración sensibles
+*.secret
+*.key
+db.sqlite3
+
+# Archivos de coverage/testing
+.coverage
+*.cover
+coverage/
+htmlcov/
+
+# =========================================
+# Node / React (Vite)
+# =========================================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+#configuracion de pnpm
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# =========================================
+# DOCKER / CONTENEDORES
+# =========================================
+
+#Archivos de caché y configuración de Docker
+
+.dockerignore
+.docker/
+
+/data/
+/db/
+/volumes/
+
+#Archivos generados por Docker (si se utilizan)
+
+tmp/
