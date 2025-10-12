@@ -29,7 +29,7 @@ class RevealKey(APIView):
         secret = settings.REDIS_CLIENT.get(key)
 
         if not secret:
-            return Response({"error": "Clave inválida o ya fue revelada"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"error": "invalid key or the key was already used"}, status=status.HTTP_404_NOT_FOUND)
 
         # destruir después de leer 🔥
         settings.REDIS_CLIENT.delete(key)
