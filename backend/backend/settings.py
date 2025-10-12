@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-lmbqjc_h=sml(5c047a=ifa!z)_nc24f!h@u#!_=_m4xp(l0+^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1", "http://localhost:5173"]
 
 # Application definition
 
@@ -42,10 +41,13 @@ INSTALLED_APPS = [
     'keys', 
     # rest_framework
     'rest_framework',
-
+    # corsheaders
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -88,7 +90,7 @@ DATABASES = {
 # Redis configuration
 
 REDIS_CLIENT = redis.Redis(
-    host='localhost',     # nombre del servicio en docker-compose
+    host='redis',     # nombre del servicio en docker-compose
     port=6379,
     db=0,
     decode_responses=True  # hace que los valores se manejen como strings en vez de bytes
@@ -136,3 +138,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_CREDENTIALS = True
