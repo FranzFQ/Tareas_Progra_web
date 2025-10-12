@@ -4,7 +4,7 @@ import NavigateBack from "../components/navigate-back";
 export default function Hide() {
   return (
     <div className="hide">
-      <h1 className="add">Add your secret here</h1>
+      <h1 className="add">Create a key for your secret</h1>
       <AddSecret />
       <NavigateBack />
     </div>

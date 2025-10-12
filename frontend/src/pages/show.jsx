@@ -1,5 +1,5 @@
 import NavigateBack from "../components/navigate-back";
-import ShowSecret from "../components/show-secret";
+import ShowSecret from "../components/show-key";
 
 export default function Show() {
   return (

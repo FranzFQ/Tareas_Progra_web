@@ -289,6 +289,14 @@ textarea {
   resize: vertical;
 }
 
+.key {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fbbf24;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 100vh;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
